@@ -39,8 +39,8 @@ describe('React Credit Card', () => {
   })
 
   describe('number prop', () => {
-    test('should render formatted number', () => {
-      const creditCard = render(<ReactCreditCard number="5105105105105100" />)
+    test('should strip whitespace and render formatted number', () => {
+      const creditCard = render(<ReactCreditCard number="5105 1051 05105100" />)
       expect(creditCard.getByText('5105 1051 0510 5100')).not.toBeNull()
     })
 

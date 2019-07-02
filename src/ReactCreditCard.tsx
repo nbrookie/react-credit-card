@@ -95,7 +95,7 @@ export const ReactCreditCard: React.FC<ReactCreditCardProps> = (props) => {
             )}
             <img className="ReactCreditCard__logo" src={getLogoSrc(cardInfo.brand)} />
             <div className={displayClassName('number', props.focused)}>
-              {formatNumber(props.number, cardInfo)}
+              {formatNumber((props.number || '').replace(/\s+/g, ''), cardInfo)}
             </div>
             <div className={displayClassName('name', props.focused)}>
               {!props.name ? props.placeholderName : props.name}
@@ -105,7 +105,7 @@ export const ReactCreditCard: React.FC<ReactCreditCardProps> = (props) => {
               data-before={props.expirationBefore}
               data-after={props.expirationAfter}
             >
-              {formatExpiration(props.expiration)}
+              {formatExpiration((props.expiration || '').replace(/\s+/g, ''))}
             </div>
           </div>
         </div>
