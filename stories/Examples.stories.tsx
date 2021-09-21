@@ -33,9 +33,10 @@ export const AsAForm = (): React.ReactElement => {
   )
 
   const [focused, setFocus] = React.useState<FOCUS_TYPE | undefined>(undefined)
-  const handleFocus = React.useCallback((event) => setFocus(event.target.name as FOCUS_TYPE), [
-    setFocus,
-  ])
+  const handleFocus = React.useCallback(
+    (event) => setFocus(event.target.name as FOCUS_TYPE),
+    [setFocus]
+  )
   const handleBlur = React.useCallback(() => setFocus(undefined), [setFocus])
 
   return (
